@@ -123,23 +123,33 @@ end
 #----------------------------------------Good
 def num_points_scored(player) 
   game_hash.each do |location, details|
-    details.each do |detail, value|
-      if detail == :players
-        value.each do |person, data|
-          # binding.pry
-          if person == player
-           data.each do |id, stats|
-            if id == :points
-            return stats
-            # binding.pry
-            end
-          end
-          end
-        end
-      end
+    details[:players].each do |player_name, stats|
+    if player_name == player
+      stats[:points]
     end
   end
 end
+      
+      # binding.pry
+      # if detail == :players
+      #   # value.each do |person, data|
+          
+      #     if person == player
+            
+            
+        # details.each do |detail, value|
+          # data.each do |id, stats|
+          #   if id == :points
+            # return stats
+            # binding.pry
+            # end
+            # end
+#           end
+#         end
+#       end
+#     end
+#   end
+# end
 #----------------------------------------Good
 def shoe_size(player)
   game_hash.each do |location, details|
